@@ -12,6 +12,16 @@ Array.prototype.myMap = function(callbackFn, args) {
 
 // FILTER //
 Array.prototype.myFilter = function(callbackFn, args) {
+    if(this.length === 0) {
+        return "Array is empty";
+    }
+    let newArray = [];
+    for(let i = 0; i < this.length; i++) {
+        if(callbackFn(this[i], args)) {
+            newArray.push(this[i]);
+        }
+    }
+    return newArray;
 };
 
 // SOME //
