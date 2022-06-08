@@ -1,4 +1,8 @@
 // MAP //
+/*
+Takes an array of elements and executes a callback function on each element.
+If there are no elemeents in the array, it returns a string.
+*/
 Array.prototype.myMap = function(callbackFn, args) {
     if(this.length === 0) {
         return "Array is empty";
@@ -26,7 +30,15 @@ Array.prototype.myFilter = function(callbackFn, args) {
 
 // SOME //
 Array.prototype.mySome = function(callbackFn) {
-
+    if(this.length === 0) {
+        return "Array is empty";
+    }
+    for(let i = 0; i < this.length; i++) {
+        if(callbackFn(this[i])) {
+            return true;
+        }
+    }
+    return false;
 };
 
 // EVERY //
