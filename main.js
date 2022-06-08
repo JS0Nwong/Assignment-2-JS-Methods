@@ -61,5 +61,3 @@ Object.myKeys = function (object) {};
 Object.myValues = function (object) {};
 
 //TEST CODE//
-const testArr = [1, 2, 3, 4];
-console.log(testArr.myEvery((ele) => ele > 0));
