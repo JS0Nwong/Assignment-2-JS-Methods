@@ -1,11 +1,11 @@
 // MAP //
 /*
 Takes an array of elements and executes a callback function on each element.
-If there are no elemeents in the array, it returns a string.
+If there are no elements in the array, it returns false.
 */
 Array.prototype.myMap = function (callbackFn, args) {
   if (this.length === 0) {
-    return "Array is empty";
+    return false;
   }
   let newArray = [];
   for (let i = 0; i < this.length; i++) {
@@ -15,9 +15,13 @@ Array.prototype.myMap = function (callbackFn, args) {
 };
 
 // FILTER //
+/*
+Takes an array of elements and executes a callback function on each element.
+If the element in the array exist it get added to a new array.
+*/
 Array.prototype.myFilter = function (callbackFn, args) {
   if (this.length === 0) {
-    return "Array is empty";
+    return false;
   }
   let newArray = [];
   for (let i = 0; i < this.length; i++) {
@@ -29,9 +33,13 @@ Array.prototype.myFilter = function (callbackFn, args) {
 };
 
 // SOME //
+/*
+Takes an array of elements and executes a callback function on each element.
+If there exist at least one element in the array that returns true, the function returns true, else it returns false.
+*/
 Array.prototype.mySome = function (callbackFn) {
   if (this.length === 0) {
-    return "Array is empty";
+    return false;;
   }
   for (let i = 0; i < this.length; i++) {
     if (callbackFn(this[i])) {
@@ -84,15 +92,34 @@ Array.prototype.myIncludes = function (searchElement) {
 };
 
 // INDEXOF //
-Array.prototype.myIndexOf = function (searchElement) {};
+Array.prototype.myIndexOf = function (searchElement, startIndex) {
+    if (this.length === 0) {
+        return false;
+    }
+    if (startIndex === undefined) {
+        startIndex = 0;
+    }
+    for(let i = startIndex; i < this.length; i++) {
+        if(searchElement === this.at(i)) {
+            return i;
+        }
+    }
+    return false;
+};
 
 // LASTINDEXOF //
-Array.prototype.myLastIndexOf = function (searchElement) {};
+Array.prototype.myLastIndexOf = function (searchElement) {
+
+};
 
 // KEYS //
-Object.myKeys = function (object) {};
+Object.myKeys = function (object) {
+
+};
 
 // VALUES //
-Object.myValues = function (object) {};
+Object.myValues = function (object) {
+
+};
 
 //TEST CODE//
