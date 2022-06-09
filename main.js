@@ -73,7 +73,15 @@ Array.prototype.myReduce = function (callbackFn, initialValue = this.at(0)) {
 };
 
 // INCLUDES //
-Array.prototype.myIncludes = function (searchElement) {};
+Array.prototype.myIncludes = function (searchElement) {
+  for (let i = 0; i < this.length; i++) {
+    if (searchElement === this.at(i)) {
+      return true;
+    }
+  }
+
+  return false;
+};
 
 // INDEXOF //
 Array.prototype.myIndexOf = function (searchElement) {};
@@ -88,10 +96,3 @@ Object.myKeys = function (object) {};
 Object.myValues = function (object) {};
 
 //TEST CODE//
-const testArr = [1, 2, 3, 4];
-console.log(
-  testArr.myReduce(
-    (previousValue, currentValue) => previousValue + currentValue,
-    20
-  )
-);
