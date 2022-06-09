@@ -57,7 +57,20 @@ Array.prototype.myEvery = function (callbackFn) {
 };
 
 // REDUCE //
-Array.prototype.myReduce = function (callbackFn) {};
+Array.prototype.myReduce = function (callbackFn, initialValue = this.at(0)) {
+  let startIndex = 0;
+  if (initialValue === this.at(0)) {
+    startIndex = 1;
+  }
+
+  let currentValue = initialValue;
+
+  for (let i = startIndex; i < this.length; i++) {
+    currentValue = callbackFn(currentValue, this.at(i));
+  }
+
+  return currentValue;
+};
 
 // INCLUDES //
 Array.prototype.myIncludes = function (searchElement) {};
@@ -75,3 +88,10 @@ Object.myKeys = function (object) {};
 Object.myValues = function (object) {};
 
 //TEST CODE//
+const testArr = [1, 2, 3, 4];
+console.log(
+  testArr.myReduce(
+    (previousValue, currentValue) => previousValue + currentValue,
+    20
+  )
+);
