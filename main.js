@@ -108,8 +108,21 @@ Array.prototype.myIndexOf = function (searchElement, startIndex) {
 };
 
 // LASTINDEXOF //
-Array.prototype.myLastIndexOf = function (searchElement) {
-
+Array.prototype.myLastIndexOf = function (searchElement, fromIndex) {
+  if(this.length === 0){
+    return -1;
+  }
+  if(fromIndex === undefined || fromIndex === -1){
+    fromIndex=this.length;
+  }else if(fromIndex < -1 && (fromIndex+this.length)>=0){
+    fromIndex=fromIndex+this.length;
+  }
+  for(let i = fromIndex; i >= 0; i--){
+    if(searchElement === this.at(i)){
+      return i;
+    }
+  }
+  return -1;
 };
 
 // KEYS //
