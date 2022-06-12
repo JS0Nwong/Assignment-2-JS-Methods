@@ -127,7 +127,22 @@ Array.prototype.myLastIndexOf = function (searchElement, fromIndex) {
 
 // KEYS //
 Object.myKeys = function (object) {
-
+  let newArray=[];
+  let j=0;
+  if(object.length != undefined){
+    for(const i in object){
+      if(j<object.length){
+      newArray[j]=i;
+      j=j+1;
+      }
+    }
+    return newArray;
+  }
+  for(const i in object){
+    newArray[j]=i;
+    j=j+1;
+  }
+  return newArray;
 };
 
 // VALUES //
