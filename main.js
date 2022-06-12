@@ -147,7 +147,22 @@ Object.myKeys = function (object) {
 
 // VALUES //
 Object.myValues = function (object) {
-
+  let newArray=[];
+  let j=0;
+  if(object.length != undefined){
+    for(const i in object){
+      if(j<object.length){
+      newArray[j]=object[i];
+      j=j+1;
+      }
+    }
+    return newArray;
+  }
+  for(const i in object){
+    newArray[j]=object[i];
+    j=j+1;
+  }
+  return newArray;
 };
 
 //TEST CODE//
