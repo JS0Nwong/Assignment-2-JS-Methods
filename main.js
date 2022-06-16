@@ -39,7 +39,7 @@ If there exist at least one element in the array that returns true, the function
 */
 Array.prototype.mySome = function (callbackFn) {
   if (this.length === 0) {
-    return false;;
+    return false;
   }
   for (let i = 0; i < this.length; i++) {
     if (callbackFn(this[i])) {
@@ -93,32 +93,32 @@ Array.prototype.myIncludes = function (searchElement) {
 
 // INDEXOF //
 Array.prototype.myIndexOf = function (searchElement, startIndex) {
-    if (this.length === 0) {
-        return false;
+  if (this.length === 0) {
+    return -1;
+  }
+  if (startIndex === undefined) {
+    startIndex = 0;
+  }
+  for (let i = startIndex; i < this.length; i++) {
+    if (searchElement === this.at(i)) {
+      return i;
     }
-    if (startIndex === undefined) {
-        startIndex = 0;
-    }
-    for(let i = startIndex; i < this.length; i++) {
-        if(searchElement === this.at(i)) {
-            return i;
-        }
-    }
-    return false;
+  }
+  return -1;
 };
 
 // LASTINDEXOF //
 Array.prototype.myLastIndexOf = function (searchElement, fromIndex) {
-  if(this.length === 0){
+  if (this.length === 0) {
     return -1;
   }
-  if(fromIndex === undefined || fromIndex === -1){
-    fromIndex=this.length;
-  }else if(fromIndex < -1 && (fromIndex+this.length)>=0){
-    fromIndex=fromIndex+this.length;
+  if (fromIndex === undefined || fromIndex === -1) {
+    fromIndex = this.length;
+  } else if (fromIndex < -1 && fromIndex + this.length >= 0) {
+    fromIndex = fromIndex + this.length;
   }
-  for(let i = fromIndex; i >= 0; i--){
-    if(searchElement === this.at(i)){
+  for (let i = fromIndex; i >= 0; i--) {
+    if (searchElement === this.at(i)) {
       return i;
     }
   }
@@ -127,40 +127,40 @@ Array.prototype.myLastIndexOf = function (searchElement, fromIndex) {
 
 // KEYS //
 Object.myKeys = function (object) {
-  let newArray=[];
-  let j=0;
-  if(object.length != undefined){
-    for(const i in object){
-      if(j<object.length){
-      newArray[j]=i;
-      j=j+1;
+  let newArray = [];
+  let j = 0;
+  if (object.length != undefined) {
+    for (const i in object) {
+      if (j < object.length) {
+        newArray[j] = i;
+        j = j + 1;
       }
     }
     return newArray;
   }
-  for(const i in object){
-    newArray[j]=i;
-    j=j+1;
+  for (const i in object) {
+    newArray[j] = i;
+    j = j + 1;
   }
   return newArray;
 };
 
 // VALUES //
 Object.myValues = function (object) {
-  let newArray=[];
-  let j=0;
-  if(object.length != undefined){
-    for(const i in object){
-      if(j<object.length){
-      newArray[j]=object[i];
-      j=j+1;
+  let newArray = [];
+  let j = 0;
+  if (object.length != undefined) {
+    for (const i in object) {
+      if (j < object.length) {
+        newArray[j] = object[i];
+        j = j + 1;
       }
     }
     return newArray;
   }
-  for(const i in object){
-    newArray[j]=object[i];
-    j=j+1;
+  for (const i in object) {
+    newArray[j] = object[i];
+    j = j + 1;
   }
   return newArray;
 };
