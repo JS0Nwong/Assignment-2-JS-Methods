@@ -65,19 +65,23 @@ Array.prototype.myEvery = function (callbackFn) {
 };
 
 // REDUCE //
-Array.prototype.myReduce = function (callbackFn, initialValue = this.at(0)) {
-  let startIndex = 0;
-  if (initialValue === this.at(0)) {
-    startIndex = 1;
+Array.prototype.myReduce = function (callbackFn, initialValue) {
+  let previousValue = this.at(0);
+  let currentValue = this.at(1);
+  let currentIndex = 1;
+
+  if (initialValue !== undefined) {
+    previousValue = initialValue;
+    currentValue = this.at(0);
+    currentIndex = 0;
   }
 
-  let currentValue = initialValue;
-
-  for (let i = startIndex; i < this.length; i++) {
-    currentValue = callbackFn(currentValue, this.at(i));
+  for (currentIndex; currentIndex < this.length; currentIndex++) {
+    previousValue = callbackFn(previousValue, currentValue, currentIndex);
+    currentValue = this.at(currentIndex + 1);
   }
 
-  return currentValue;
+  return previousValue;
 };
 
 // INCLUDES //
